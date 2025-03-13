@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Summarizer</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        textarea { width: 80%; height: 100px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>YouTube Summarizer</h1>
+    <form method="POST" action="/summarize">
+        <label for="video_url">Enter YouTube Video URL:</label><br>
+        <input type="url" id="video_url" name="video_url" style="width: 80%;" required>
+        <br><br>
+        <button type="submit">Summarize</button>
+    </form>
+    <hr>
+    {% if summary %}
+    <h3>Summary:</h3>
+    <textarea readonly>{{ summary }}</textarea>
+    {% elif error %}
+    <h3 style="color: red;">{{ error }}</h3>
+    {% endif %}
+</body>
+</html>
